@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy Club — Cartão de Visita</title>
+<style>
+  :root{
+    --gold-1:#b7a569;
+    --gold-2:#c9bb82;
+    --gold-3:#7c6a3d;
+    --ink:#e9e3d2;
+    --bg1:#0c0c0e; --bg2:#101113;
+  }
+  *{box-sizing:border-box} html,body{height:100%}
+  body{
+    margin:0; padding:24px;
+    display:grid; place-items:center;
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    color:var(--ink);
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  }
+  .card{
+    width:min(680px,92vw);
+    background:linear-gradient(180deg,#121315,#0f1011);
+    border-radius:28px; padding:38px 28px 26px; position:relative;
+    box-shadow:
+      0 0 0 1px rgba(183,165,105,.10),
+      0 18px 48px rgba(0,0,0,.55),
+      inset 0 0 0 1px rgba(255,255,255,.02);
+  }
+  .logo-wrap{
+    width:clamp(140px,32vw,220px); height:clamp(140px,32vw,220px);
+    margin:8px auto 18px; border-radius:50%;
+    background:#141416; display:grid; place-items:center;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.03), 0 8px 20px rgba(0,0,0,.55);
+  }
+  .logo{
+    width:88%; height:88%; border-radius:50%;
+    display:block; object-fit:cover; object-position:center;
+    box-shadow:0 1px 3px rgba(0,0,0,.35);
+  }
+  .brand{
+    margin:12px 0 6px; text-align:center;
+    font-weight:800; letter-spacing:.02em;
+    font-size:clamp(28px,7.2vw,56px); line-height:1.05;
+    background:linear-gradient(180deg,var(--gold-2),var(--gold-1) 60%,var(--gold-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:brightness(.96) contrast(.9) saturate(.9);
+  }
+  .sub{
+    margin:12px auto 26px; text-align:center;
+    font-size:clamp(14px,3.5vw,18px); color:#d9d2ba; opacity:.92;
+  }
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    width:min(560px,92%); height:60px; margin:0 auto 18px;
+    padding:0 22px; text-decoration:none;
+    border-radius:36px; font-weight:600; font-size:clamp(18px,4.5vw,22px);
+    transition:.3s ease;
+  }
+  .btn svg{width:22px; height:22px;}
+  .whatsapp{
+    background:#111; border:1px solid #b7a569; color:#b7a569;
+  }
+  .whatsapp:hover{background:#b7a569; color:#111;}
+  .instagram{
+    background:#111; border:1px solid #b7a569; color:#b7a569;
+  }
+  .instagram:hover{background:#b7a569; color:#111;}
+  footer{
+    margin-top:30px; font-size:12px; color:#7a6b4c; text-align:center;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo-wrap">
+      <img src="lc-logo.png" alt="Logo Legacy Club" class="logo">
+    </div>
+
+    <h1 class="brand">LEGACY CLUB</h1>
+    <p class="sub">✦ Cartão de Visita Oficial</p>
+
+    <!-- Botão WhatsApp -->
+    <a class="btn whatsapp"
+       href="https://wa.me/5522998890434?text=Ol%C3%A1%2C%20vim%20pelo%20cart%C3%A3o%20de%20visita%20%E2%80%93%20Legacy%20Club."
+       target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.77 11.77 0 0 0 12.03 0C5.59.01.34 5.25.35 11.69c0 2.06.54 4.04 1.57 5.78L0 24l6.7-1.75a11.6 11.6 0 0 0 5.33 1.36h.01c6.44 0 11.69-5.24 11.7-11.69.01-3.13-1.21-6.07-3.22-8.14zM12.04 21.1h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.2-3.98 1.04 1.06-3.88-.23-.4a9.62 9.62 0 0 1-1.46-5.1C2.16 6.31 6.34 2.12 12 2.12a9.86 9.86 0 0 1 9.88 9.86c-.01 5.65-4.6 10.12-9.84 10.12z"/></svg>
+      WhatsApp
+    </a>
+
+    <!-- Botão Instagram -->
+    <a class="btn instagram" href="https://instagram.com/legacyclub_br" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 190.7c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9zM398.8 80c-7.8-20.4-23-36.6-43.4-44.4C336.8 26.3 298.3 24 224 24s-112.8 2.3-131.4 11.6C72.2 43.4 56.9 59.6 49.2 80 40 98.5 37.7 136.6 37.7 255.9s2.3 157.4 11.5 175.9c7.8 20.4 23 36.6 43.4 44.4C111.2 466.5 149.7 468.8 224 468.8s112.8-2.3 131.4-11.6c20.4-7.8 35.6-24 43.4-44.4 9.2-18.5 11.5-56.6 11.5-175.9S408 98.5 398.8 80zM224 338.8c-46.1 0-83.9-37.8-83.9-83.9s37.8-83.9 83.9-83.9 83.9 37.8 83.9 83.9-37.8 83.9-83.9 83.9zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9z"/></svg>
+      Instagram
+    </a>
+
+    <footer>© Legacy Club — Todos os direitos reservados</footer>
+  </div>
+</body>
+</html>
