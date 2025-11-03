@@ -2,153 +2,104 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LEGACY CLUB — Atendimento</title>
-<meta name="theme-color" content="#0b0b0b">
-<meta name="description" content="Atendimento oficial — Legacy Club">
-<meta property="og:title" content="LEGACY CLUB — Atendimento">
-<meta property="og:description" content="Fale conosco no WhatsApp">
-<meta property="og:type" content="website">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Legacy Club</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0a0a; --panel:#0e0e0e; --text:#efe7c9;
-    --gold1:#e2cf93; --gold2:#cdb67a; --gold3:#bda76a;
-    --edge:rgba(205,182,122,.28);
+    --bg:#0e0e0f; --panel:#121213; --gold:#cdb67a; --gold-2:#b79f62;
+    --gold-soft:rgba(205,182,122,.14); --ring:#2a2925;
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;background:#0a0a0a;color:var(--text);
-    font-family: ui-serif, Georgia, "Times New Roman", serif;-webkit-font-smoothing:antialiased}
-  /* luz suave no fundo */
-  .vignette{
-    position:fixed; inset:0; pointer-events:none;
-    background:
-      radial-gradient(1400px 900px at 50% -12%, #141414 0%, transparent 70%),
-      radial-gradient(1200px 800px at 50% 118%, #0d0d0d 0%, transparent 65%);
-    opacity:.95;
+  html,body{height:100%}
+  body{
+    margin:0;background:radial-gradient(1200px 900px at 50% -200px,#141414 0%,#0c0c0d 60%,#09090a 100%), var(--bg);
+    color:#e9e6dc;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    display:flex;align-items:center;justify-content:center;padding:28px;
   }
-  .wrap{min-height:100%;display:grid;place-items:center;padding:44px 18px}
   .card{
-    width:min(760px,100%);
-    padding:34px 24px 32px;
-    border-radius:32px;
-    background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.012));
-    border:1px solid var(--edge);
+    width:min(92vw,680px);
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.2)) , var(--panel);
+    border-radius:28px;padding:40px 28px 34px;position:relative;
     box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,.035),
-      0 30px 80px rgba(0,0,0,.65);
-    position:relative; overflow:hidden;
+      0 0 0 1px rgba(205,182,122,.08) inset,
+      0 12px 40px rgba(0,0,0,.55);
   }
-  /* “borda dupla” */
   .card::before{
-    content:""; position:absolute; inset:10px;
-    border-radius:26px;
-    border:1px solid rgba(205,182,122,.16);
+    content:"";position:absolute;inset:-1px;
+    border-radius:30px;
+    background:linear-gradient(180deg,rgba(205,182,122,.35),rgba(205,182,122,0) 35%,rgba(205,182,122,.22) 92%,rgba(205,182,122,0) 100%);
+    -webkit-mask: linear-gradient(#000,#000) content-box, linear-gradient(#000,#000);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    padding:1px;pointer-events:none;
+  }
+  .logo-wrap{
+    width:210px;height:210px;margin:0 auto 22px;border-radius:50%;
+    background:radial-gradient(110px 110px at 50% 35%, #1c1b1a 0%, #111 70%), #111;
+    box-shadow:
+      0 0 0 1px var(--ring) inset,
+      0 12px 26px rgba(0,0,0,.55),
+      0 -6px 24px rgba(205,182,122,.06) inset;
+    display:grid;place-items:center;position:relative;
+  }
+  .logo-wrap::after{
+    content:"";position:absolute;inset:-1px;border-radius:50%;
+    background:radial-gradient(70% 70% at 50% 35%,rgba(205,182,122,.35),transparent 60%);
     pointer-events:none;
   }
-
-  header{display:grid;place-items:center;row-gap:18px;text-align:center;margin-bottom:16px}
-  .crest{
-    width:168px;height:168px;border-radius:50%;
-    display:grid;place-items:center;overflow:hidden;position:relative;
-    background: radial-gradient(70% 70% at 50% 35%, rgba(255,255,255,.06), transparent);
-    box-shadow:
-      0 12px 28px rgba(0,0,0,.6),
-      inset 0 0 0 1px rgba(255,255,255,.05);
-  }
-  .crest::after{
-    content:""; position:absolute; inset:0; border-radius:50%;
-    box-shadow: 0 0 0 7px rgba(205,182,122,.10);
-    border:1px solid rgba(205,182,122,.38);
-  }
-  /* logo sempre central e proporcional */
-  .crest img{width:92%;height:92%;object-fit:contain;object-position:center;display:block}
-
+  img.logo{width:76%;height:76%;object-fit:contain;filter: drop-shadow(0 2px 8px rgba(0,0,0,.45))}
   h1{
-    margin:0; font-size:48px; letter-spacing:.9px; text-transform:uppercase;
-    background: linear-gradient(180deg, var(--gold1), var(--gold2) 60%, var(--gold3));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-    text-shadow: 0 1px 0 #000;
+    margin:6px 0 10px;font:700 44px/1.08 Cardo,serif;letter-spacing:.04em;
+    color:transparent;background:linear-gradient(180deg,var(--gold),var(--gold-2));-webkit-background-clip:text;background-clip:text;
+    text-align:center;text-transform:uppercase;text-shadow:0 2px 0 rgba(0,0,0,.35);
   }
-  .sub{margin-top:4px;font-size:19px;color:#d8cda8;opacity:.96}
-
-  .divider{
-    height:1px;width:min(600px,88%);margin:18px auto 26px;border-radius:50%;
-    background: linear-gradient(90deg, transparent, rgba(205,182,122,.35), transparent);
+  .sub{
+    text-align:center;margin:0 0 26px;color:#d8cfb7;opacity:.95;letter-spacing:.02em;
+    font-weight:500
   }
-
-  /* botão WhatsApp */
+  hr.sep{
+    height:1px;border:0;margin:18px auto 24px;width:86%;
+    background:linear-gradient(90deg,transparent, var(--gold-soft), transparent);
+  }
   .cta{
-    display:grid;grid-template-columns:76px 1fr 18px;align-items:center;gap:18px;
-    width:min(660px,100%);margin:0 auto;padding:24px 26px;border-radius:999px;
-    color:var(--text); text-decoration:none;
-    background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.014));
-    border:1px solid rgba(205,182,122,.33);
-    box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,.03),
-      0 22px 56px rgba(0,0,0,.58);
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+    display:flex;align-items:center;gap:16px;justify-content:space-between;
+    width:100%;margin:0 auto;padding:18px 22px;border-radius:56px;
+    background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.2)), #101010;
+    box-shadow: 0 0 0 1px rgba(205,182,122,.16) inset, 0 8px 30px rgba(0,0,0,.45);
+    text-decoration:none;color:#efe8d2;
   }
-  .cta:hover{
-    border-color:rgba(205,182,122,.5);
-    box-shadow:0 28px 62px rgba(0,0,0,.62);
-    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  .cta .icon{
+    width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
+    box-shadow: inset 0 0 0 2px rgba(205,182,122,.25), 0 2px 10px rgba(0,0,0,.4);
+    background:radial-gradient(80% 80% at 50% 30%,rgba(205,182,122,.22),transparent 60%);
+    flex:0 0 auto;
   }
+  .cta .txt{font:600 24px/1.1 Inter,system-ui,sans-serif;letter-spacing:.02em}
+  .cta .arrow{margin-left:auto;opacity:.85}
   .cta:active{transform:translateY(1px)}
-  .ico{
-    height:76px;width:76px;border-radius:50%;display:grid;place-items:center;
-    border:1px solid rgba(205,182,122,.37);
-    background: radial-gradient(120% 120% at 50% 20%, #181818, #0b0b0b);
-  }
-  .ico svg{width:32px;height:32px;display:block}
-  .cta span{font-size:24px}
-
-  .foot{margin-top:24px;text-align:center;font-size:13px;color:#d8cda8}
-
+  .legal{margin-top:22px;text-align:center;color:#cfc6ac;font-size:14px;opacity:.9}
   @media (max-width:420px){
-    h1{font-size:40px}
-    .cta{grid-template-columns:64px 1fr 16px;padding:20px}
-    .ico{height:64px;width:64px}
-    .cta span{font-size:20px}
-    .crest{width:150px;height:150px}
+    h1{font-size:38px}
+    .logo-wrap{width:180px;height:180px}
+    .cta .txt{font-size:20px}
   }
 </style>
 </head>
 <body>
-  <div class="vignette" aria-hidden="true"></div>
-
-  <main class="wrap">
-    <section class="card" role="region" aria-label="Legacy Club">
-      <header>
-        <div class="crest" role="img" aria-label="Brasão Legacy Club">
-          <!-- Se o nome do arquivo for diferente, troque aqui -->
-          <img src="lc-logo.jpg" alt="LC logo">
-        </div>
-        <h1>LEGACY CLUB</h1>
-        <div class="sub">⚜︎ Atendimento Oficial</div>
-      </header>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <a class="cta"
-         href="https://wa.me/5522998890434?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Legacy%20Club%20e%20quero%20atendimento."
-         target="_blank" rel="noopener" aria-label="WhatsApp — Fale Conosco">
-        <div class="ico" aria-hidden="true">
-          <!-- ícone WA em dourado -->
-          <svg viewBox="0 0 512 512"><defs>
-            <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#e2cf93"/><stop offset="100%" stop-color="#cdb67a"/>
-            </linearGradient>
-          </defs>
-            <path fill="url(#gold)" d="M256 48C141 48 48 141 48 256c0 40 11 79 32 113l-21 77c-3 12 7 22 19 19l77-21c34 21 73 32 113 32 115 0 208-93 208-208S371 48 256 48zm0 372c-35 0-69-10-98-29a16 16 0 0 0-12-2l-47 13 13-47a16 16 0 0 0-2-12 175 175 0 0 1-29-98c0-96 79-175 175-175s175 79 175 175-79 175-175 175zm103-104c-5 15-30 28-41 29-11 1-26 1-67-21-56-30-92-88-95-92-3-4-23-30-23-57s14-38 19-43c5-5 11-6 14-6h10c3 0 8-1 12 9 5 12 17 41 18 44s3 7 0 11-4 7-8 11c-3 3-7 7-3 13 4 6 18 30 40 49 27 24 49 31 56 34 6 2 11 2 15-2 5-5 17-18 21-24s9-5 15-3c6 2 38 18 44 21s10 5 12 8c2 4 2 20-3 35z"/>
-          </svg>
-        </div>
-        <span>Fale Conosco</span>
-        <div aria-hidden="true">›</div>
-      </a>
-
-      <p class="foot">© Legacy Club — Todos os direitos reservados</p>
-    </section>
+  <main class="card" role="region" aria-label="Legacy Club">
+    <div class="logo-wrap">
+      <img class="logo" src="./lc-logo.png" alt="Legacy Club">
+    </div>
+    <h1>LEGACY CLUB</h1>
+    <p class="sub">✧ Atendimento Oficial</p>
+    <hr class="sep">
+    <a class="cta" href="https://wa.me/5522998890434?text=Ol%C3%A1%20Legacy%20Club!" target="_blank" rel="noopener">
+      <span class="icon">🟢</span>
+      <span class="txt">Fale Conosco</span>
+      <span class="arrow">›</span>
+    </a>
+    <div class="legal">© Legacy Club — Todos os direitos reservados</div>
   </main>
 </body>
 </html>
