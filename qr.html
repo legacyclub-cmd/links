@@ -1,102 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Legacy Club — Cartão de Visita</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --gold-1:#b7a569;
-    --gold-2:#c9bb82;
-    --gold-3:#7c6a3d;
-    --ink:#e9e3d2;
-    --bg1:#0c0c0e; --bg2:#101113;
+    /* Dourado “Legacy” fosco (mesma pegada do outro link) */
+    --gold-1:#d6c38b;   /* topo do degradê */
+    --gold-2:#b79b61;   /* meio */
+    --gold-3:#8f7a4a;   /* base/sombra */
+    --ink:#e7dcc4;      /* textos claros */
+    --card:#101315;     /* fundo do cartão */
+    --bg:  #0b0e10;     /* fundo geral */
   }
-  *{box-sizing:border-box} html,body{height:100%}
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
   body{
-    margin:0; padding:24px;
+    margin:0; background:radial-gradient(1200px 700px at 50% -10%, #161a1d 0%, var(--bg) 55%, #090b0d 100%);
+    color:var(--ink); font-family: "Cinzel", ui-serif, Georgia, "Times New Roman", serif;
     display:grid; place-items:center;
-    font-family: ui-serif, Georgia, "Times New Roman", serif;
-    color:var(--ink);
-    background:linear-gradient(180deg,var(--bg1),var(--bg2));
   }
+
   .card{
-    width:min(680px,92vw);
-    background:linear-gradient(180deg,#121315,#0f1011);
-    border-radius:28px; padding:38px 28px 26px; position:relative;
+    width:min(720px, 92vw);
+    background: radial-gradient(140px 90px at 50px 40px, rgba(255,215,130,.12) 0, rgba(255,215,130,0) 70%) , var(--card);
+    border-radius:28px;
+    padding:42px 28px 34px;
+    border:1px solid rgba(214,195,139,.18);
     box-shadow:
-      0 0 0 1px rgba(183,165,105,.10),
-      0 18px 48px rgba(0,0,0,.55),
-      inset 0 0 0 1px rgba(255,255,255,.02);
+      0 0 0 1px rgba(0,0,0,.6) inset,
+      0 18px 60px rgba(0,0,0,.55),
+      0 1px 0 rgba(255,255,255,.02) inset;
   }
-  .logo-wrap{
-    width:clamp(140px,32vw,220px); height:clamp(140px,32vw,220px);
-    margin:8px auto 18px; border-radius:50%;
-    background:#141416; display:grid; place-items:center;
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,.03), 0 8px 20px rgba(0,0,0,.55);
-  }
+
+  /* logo redonda */
   .logo{
-    width:88%; height:88%; border-radius:50%;
-    display:block; object-fit:cover; object-position:center;
-    box-shadow:0 1px 3px rgba(0,0,0,.35);
+    width:168px; aspect-ratio:1/1; margin:8px auto 18px; border-radius:50%;
+    display:grid; place-items:center; overflow:hidden;
+    background:
+      radial-gradient(100px 70px at 55% 35%, rgba(255,240,200,.15), rgba(0,0,0,0) 60%),
+      #0f1113;
+    box-shadow:
+      0 0 0 1px rgba(214,195,139,.25) inset,
+      0 10px 26px rgba(0,0,0,.55);
+    border:1px solid rgba(214,195,139,.28);
   }
-  .brand{
-    margin:12px 0 6px; text-align:center;
-    font-weight:800; letter-spacing:.02em;
-    font-size:clamp(28px,7.2vw,56px); line-height:1.05;
-    background:linear-gradient(180deg,var(--gold-2),var(--gold-1) 60%,var(--gold-3));
+  .logo img{width:100%; height:100%; object-fit:cover; border-radius:50%}
+
+  h1{
+    margin:6px 0 10px; text-align:center; letter-spacing:.04em;
+    font-size: clamp(28px, 6.6vw, 62px);
+    line-height:1.05; font-weight:800;
+    background: linear-gradient(180deg, var(--gold-1), var(--gold-2) 55%, var(--gold-3));
     -webkit-background-clip:text; background-clip:text; color:transparent;
-    filter:brightness(.96) contrast(.9) saturate(.9);
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.35),
+      0 16px 26px rgba(0,0,0,.35);
   }
+
   .sub{
-    margin:12px auto 26px; text-align:center;
-    font-size:clamp(14px,3.5vw,18px); color:#d9d2ba; opacity:.92;
+    margin:0 auto 26px; text-align:center; font-size:clamp(14px, 2.8vw, 18px);
+    color:#d9cfb7; opacity:.92; letter-spacing:.02em;
   }
+
+  .btns{display:grid; gap:18px; margin: 6px auto 10px; width:min(580px, 92vw)}
+
   .btn{
-    display:flex; align-items:center; justify-content:center; gap:12px;
-    width:min(560px,92%); height:60px; margin:0 auto 18px;
-    padding:0 22px; text-decoration:none;
-    border-radius:36px; font-weight:600; font-size:clamp(18px,4.5vw,22px);
-    transition:.3s ease;
+    position:relative; display:flex; align-items:center; gap:14px;
+    padding:18px 22px; border-radius:42px; text-decoration:none; overflow:hidden;
+    border:1px solid rgba(214,195,139,.45);
+    background:
+      linear-gradient(180deg, rgba(214,195,139,.16), rgba(15,17,19,.02) 60%, rgba(0,0,0,.15)),
+      #0f1113;
+    color:#e9dfc9;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.04) inset,
+      0 0 0 1px rgba(0,0,0,.7) inset,
+      0 14px 36px rgba(0,0,0,.45);
+    transition:.18s transform ease, .18s box-shadow ease, .18s border-color ease;
   }
-  .btn svg{width:22px; height:22px;}
-  .whatsapp{
-    background:#111; border:1px solid #b7a569; color:#b7a569;
+  .btn:hover{transform:translateY(-1px); box-shadow:
+      0 1px 0 rgba(255,255,255,.05) inset,
+      0 0 0 1px rgba(0,0,0,.7) inset,
+      0 18px 44px rgba(0,0,0,.55);}
+  .btn:active{transform:translateY(0)}
+
+  .ico{
+    width:46px; height:46px; border-radius:50%;
+    display:grid; place-items:center; flex:0 0 auto;
+    background: radial-gradient(18px 18px at 35% 30%, rgba(255,240,200,.12), rgba(0,0,0,0) 70%), #0f1113;
+    border:1px solid rgba(214,195,139,.42);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.7) inset, 0 6px 16px rgba(0,0,0,.35);
   }
-  .whatsapp:hover{background:#b7a569; color:#111;}
-  .instagram{
-    background:#111; border:1px solid #b7a569; color:#b7a569;
-  }
-  .instagram:hover{background:#b7a569; color:#111;}
-  footer{
-    margin-top:30px; font-size:12px; color:#7a6b4c; text-align:center;
-  }
+  .ico svg{width:26px; height:26px; display:block; fill:url(#goldFill);}
+
+  .txt{font-weight:700; letter-spacing:.02em; font-size:clamp(18px, 3.4vw, 26px)}
+
+  .copy{margin:22px 0 0; text-align:center; font-size:14px; color:#cfc5ad; opacity:.92}
+  .copy span{opacity:.92}
+
+  /* gradiente dourado para os ícones */
+  svg defs linearGradient stop:nth-child(1){stop-color:var(--gold-1)}
+  svg defs linearGradient stop:nth-child(2){stop-color:var(--gold-2)}
+  svg defs linearGradient stop:nth-child(3){stop-color:var(--gold-3)}
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="logo-wrap">
-      <img src="lc-logo.png" alt="Logo Legacy Club" class="logo">
+  <main class="card">
+    <div class="logo">
+      <!-- usa a mesma imagem do outro link -->
+      <img src="lc-logo.png" alt="LC – Legacy Club">
     </div>
 
-    <h1 class="brand">LEGACY CLUB</h1>
+    <h1>LEGACY CLUB</h1>
     <p class="sub">✦ Cartão de Visita Oficial</p>
 
-    <!-- Botão WhatsApp -->
-    <a class="btn whatsapp"
-       href="https://wa.me/5522998890434?text=Ol%C3%A1%2C%20vim%20pelo%20cart%C3%A3o%20de%20visita%20%E2%80%93%20Legacy%20Club."
-       target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.77 11.77 0 0 0 12.03 0C5.59.01.34 5.25.35 11.69c0 2.06.54 4.04 1.57 5.78L0 24l6.7-1.75a11.6 11.6 0 0 0 5.33 1.36h.01c6.44 0 11.69-5.24 11.7-11.69.01-3.13-1.21-6.07-3.22-8.14zM12.04 21.1h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.2-3.98 1.04 1.06-3.88-.23-.4a9.62 9.62 0 0 1-1.46-5.1C2.16 6.31 6.34 2.12 12 2.12a9.86 9.86 0 0 1 9.88 9.86c-.01 5.65-4.6 10.12-9.84 10.12z"/></svg>
-      WhatsApp
-    </a>
+    <div class="btns">
+      <!-- WHATSAPP -->
+      <a class="btn" href="https://wa.me/5522998890434?text=Ol%C3%A1%2C%20vim%20pelo%20cart%C3%A3o%20visita%20%E2%80%93%20Legacy%20Club.%20Gostaria%20de%20atendimento." target="_blank" rel="noopener">
+        <span class="ico">
+          <!-- Ícone WhatsApp dourado -->
+          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="goldFill" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0"/>
+                <stop offset=".55"/>
+                <stop offset="1"/>
+              </linearGradient>
+            </defs>
+            <path d="M128 28c-54.7 0-99 43.6-99 97.4 0 17.1 4.7 33.2 13.6 47.5L34 228l56.7-8.8c11.9 6.5 25.3 9.9 37.3 9.9 54.7 0 99-43.6 99-97.4S182.7 28 128 28Zm0 176.8c-11.6 0-24.1-3.5-34.7-9.4l-2.5-1.4-33.6 5.2 5.6-32.9-1.7-2.7c-8-12.7-12.2-27-12.2-41.9 0-44.6 37-80.8 82.1-80.8s82.1 36.2 82.1 80.8-37 80.8-82.1 80.8Zm47.9-58.1c-2.7-1.3-15.8-7.7-18.2-8.6-2.4-.9-4.2-1.3-6 1.3s-6.9 8.6-8.5 10.4-3.1 1.9-5.8.6-11.3-4.1-21.6-13.1c-8-7.1-13.3-15.9-14.8-18.6s-.2-4.1 1.1-5.4c1.2-1.2 2.7-3.1 4-4.6 1.3-1.5 1.8-2.5 2.7-4.1s.5-3-.2-4.1c-.6-1.3-6-14.6-8.2-20-2.2-5.3-4.3-4.6-6-4.7-1.6-.1-3.5-.1-5.4-.1s-4.9.7-7.5 3.5-9.8 9.6-9.8 23.4 10 27.1 11.4 29 19.6 29.7 47.6 40.7c6.7 2.9 11.9 4.6 15.9 5.9 6.7 2.1 12.8 1.8 17.6 1.1 5.4-.8 15.8-6.5 18-12.8 2.2-6.3 2.2-11.7 1.5-12.8-.7-1-2.5-1.8-5.2-3.1Z"/>
+          </svg>
+        </span>
+        <span class="txt">WhatsApp</span>
+      </a>
 
-    <!-- Botão Instagram -->
-    <a class="btn instagram" href="https://instagram.com/legacyclub_br" target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 190.7c-41.9 0-75.9-34-75.9-75.9s34-75.9 75.9-75.9 75.9 34 75.9 75.9-34 75.9-75.9 75.9zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9zM398.8 80c-7.8-20.4-23-36.6-43.4-44.4C336.8 26.3 298.3 24 224 24s-112.8 2.3-131.4 11.6C72.2 43.4 56.9 59.6 49.2 80 40 98.5 37.7 136.6 37.7 255.9s2.3 157.4 11.5 175.9c7.8 20.4 23 36.6 43.4 44.4C111.2 466.5 149.7 468.8 224 468.8s112.8-2.3 131.4-11.6c20.4-7.8 35.6-24 43.4-44.4 9.2-18.5 11.5-56.6 11.5-175.9S408 98.5 398.8 80zM224 338.8c-46.1 0-83.9-37.8-83.9-83.9s37.8-83.9 83.9-83.9 83.9 37.8 83.9 83.9-37.8 83.9-83.9 83.9zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9z"/></svg>
-      Instagram
-    </a>
+      <!-- INSTAGRAM -->
+      <a class="btn" href="https://instagram.com/legacyclub_br" target="_blank" rel="noopener">
+        <span class="ico">
+          <!-- Ícone Instagram dourado -->
+          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="goldFill" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0"/>
+                <stop offset=".55"/>
+                <stop offset="1"/>
+              </linearGradient>
+            </defs>
+            <path d="M176 28H80C50.4 28 28 50.4 28 80v96c0 29.6 22.4 52 52 52h96c29.6 0 52-22.4 52-52V80c0-29.6-22.4-52-52-52Zm36 148c0 20.1-15.9 36-36 36H80c-20.1 0-36-15.9-36-36V80c0-20.1 15.9-36 36-36h96c20.1 0 36 15.9 36 36v96Zm-84-96a52 52 0 1 0 0 104 52 52 0 0 0 0-104Zm0 88a36 36 0 1 1 0-72 36 36 0 0 1 0 72Zm56-98a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z"/>
+          </svg>
+        </span>
+        <span class="txt">Instagram</span>
+      </a>
+    </div>
 
-    <footer>© Legacy Club — Todos os direitos reservados</footer>
-  </div>
+    <p class="copy">© <span>Legacy Club</span> — Todos os direitos reservados</p>
+  </main>
 </body>
 </html>
