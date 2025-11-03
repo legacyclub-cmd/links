@@ -4,12 +4,16 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Legacy Club — Atendimento Oficial</title>
+
+<!-- Fonte Cinzel padrão Legacy -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    /* Dourado fosco tipo “flor-de-lis” */
-    --gold-1:#bba25a;   /* base amendoada */
-    --gold-2:#d1c18b;   /* luz quente e opaca */
-    --gold-3:#8c7740;   /* sombra */
+    --gold-1:#bba25a;
+    --gold-2:#d1c18b;
+    --gold-3:#8c7740;
     --bg-1:#0b0b0d;
     --bg-2:#101012;
     --text:#e7e2d3;
@@ -19,7 +23,7 @@
   html,body{height:100%}
   body{
     margin:0;
-    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    font-family:"Cinzel", serif;
     color:var(--text);
     background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
     display:grid; place-items:center; padding:24px;
@@ -61,12 +65,14 @@
 
   .brand{
     margin:12px 0 6px;text-align:center;
-    font-weight:800;letter-spacing:.02em;
-    font-size:clamp(28px,7.2vw,56px);line-height:1.05;
+    font-family:"Cinzel", serif;
+    font-weight:800;
+    letter-spacing:.04em;
+    font-size:clamp(28px,7.2vw,56px);
+    line-height:1.05;
     background:linear-gradient(180deg,var(--gold-2),var(--gold-1) 55%,var(--gold-3));
     -webkit-background-clip:text;background-clip:text;color:transparent;
-    text-shadow:0 1px 0 rgba(255,255,255,.02);
-    filter:brightness(0.95) contrast(0.9);
+    text-shadow:0 2px 4px rgba(0,0,0,.45), 0 8px 20px rgba(0,0,0,.6);
   }
 
   .sub{
@@ -80,7 +86,9 @@
     margin:0 auto 18px;
     width:min(560px,92%);height:64px;
     background:linear-gradient(180deg,#101112,#0d0e0f);
-    color:#f0ead6;text-decoration:none;font-weight:600;
+    color:#f0ead6;text-decoration:none;
+    font-family:"Cinzel", serif;
+    font-weight:700;
     font-size:clamp(18px,4.5vw,22px);
     border-radius:36px;padding:0 22px;
     box-shadow:0 0 0 1px rgba(187,162,90,.16),
@@ -115,7 +123,6 @@
     <h1 class="brand">LEGACY CLUB</h1>
     <p class="sub">✣ Atendimento Oficial</p>
 
-    <!-- Mensagem automática corrigida -->
     <a class="btn"
        href="https://wa.me/5522998890434?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20%E2%80%93%20Legacy%20Club.%20Gostaria%20de%20atendimento."
        target="_blank" rel="noopener">
