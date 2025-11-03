@@ -1,203 +1,120 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Legacy Club — Atendimento Oficial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacy Club</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #0a0a0a, #000);
+      font-family: 'Times New Roman', serif;
+      color: #e7dcc4;
+    }
 
-<!-- Tipos elegantes parecidos com o seu layout -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet">
+    .card {
+      background: linear-gradient(145deg, #0a0a0a, #111);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 22px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.08);
+      width: 90%;
+      max-width: 380px;
+    }
 
-<style>
-  :root{
-    /* dourado metálico (tom idêntico do seu print) */
-    --gold-1:#cdb67a;   /* claro */
-    --gold-2:#8f7b4a;   /* médio */
-    --gold-3:#6a5a36;   /* escuro */
-    --panel:#0b0c0d;    /* preto fosco */
-    --bg:#0a0a0a;
-  }
+    /* Logo circular centralizada */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto 25px auto;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 215, 0, 0.08), transparent 70%);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.08);
+    }
 
-  html,body{height:100%}
-  body{
-    margin:0;
-    background: radial-gradient(1100px 700px at 60% -200px, rgba(205,182,122,0.10), transparent 60%),
-                radial-gradient(900px 600px at -200px 30%, rgba(205,182,122,0.06), transparent 60%),
-                var(--bg);
-    color:#e8e0cf;
-    font-family: Cardo, serif;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    display:grid;
-    place-items:center;
-    padding:28px 16px;
-  }
+    .logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-  .card{
-    width:min(680px, 92vw);
-    background: linear-gradient(180deg, #0f1011 0%, #0b0c0d 100%);
-    border-radius:28px;
-    position:relative;
-    padding:54px 28px 36px;
-    box-shadow:
-      0 0 0 1px rgba(205,182,122,.06) inset,
-      0 0 0 2px rgba(106,90,54,.04) inset,
-      0 22px 60px rgba(0,0,0,.65);
-  }
+    h1 {
+      font-size: 34px;
+      letter-spacing: 1px;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      margin-bottom: 8px;
+    }
 
-  /* filete dourado da moldura */
-  .card::before{
-    content:"";
-    position:absolute; inset:8px;
-    border-radius:22px;
-    background:
-      linear-gradient(180deg, rgba(205,182,122,.22), rgba(106,90,54,.14));
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    padding:1.5px;
-  }
+    .sub {
+      font-size: 16px;
+      color: #e7dcc4;
+      opacity: 0.85;
+      margin-bottom: 28px;
+    }
 
-  .logo-wrap{
-    display:grid; place-items:center;
-    margin: 8px auto 22px;
-  }
-  .logo{
-    width: 180px; height:180px;
-    border-radius:50%;
-    background: radial-gradient(120px 120px at 40% 35%, rgba(255,255,255,.06), rgba(0,0,0,.0) 60%),
-                #111;
-    box-shadow:
-      0 0 0 2px rgba(205,182,122,.10) inset,
-      0 0 0 6px rgba(35,35,35,.85) inset,
-      0 18px 40px rgba(0,0,0,.65);
-    overflow:hidden;
-    display:grid; place-items:center;
-  }
-  .logo img{
-    width:84%; height:84%; object-fit:contain; display:block;
-    filter: drop-shadow(0 10px 14px rgba(0,0,0,.45));
-  }
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(145deg, #111, #1b1b1b);
+      color: #f2f0e9;
+      font-size: 18px;
+      font-weight: 500;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 50px;
+      padding: 14px 22px;
+      text-decoration: none;
+      transition: all 0.25s ease-in-out;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
+    }
 
-  /* Título com dourado metálico */
-  .brand{
-    font-family: Cinzel, serif;
-    font-weight:700;
-    font-size: clamp(34px, 6.6vw, 64px);
-    letter-spacing:.04em;
-    text-align:center;
-    margin: 8px 8px 16px;
-    color: var(--gold-1);
-    background: linear-gradient(180deg, var(--gold-1), var(--gold-2) 55%, var(--gold-3));
-    -webkit-background-clip:text;
-            background-clip:text;
-    -webkit-text-fill-color:transparent;
-    text-shadow:
-      0 1px 0 rgba(255,255,255,.02),
-      0 14px 26px rgba(0,0,0,.65);
-  }
+    .btn:hover {
+      background: linear-gradient(145deg, #222, #111);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+      transform: translateY(-2px);
+    }
 
-  .sub{
-    opacity:.92;
-    color: #e7dcc4;
-    text-align:center;
-    letter-spacing:.03em;
-    font-size: clamp(16px, 2.8vw, 22px);
-    margin: 0 0 26px;
-  }
+    footer {
+      font-size: 12px;
+      margin-top: 40px;
+      opacity: 0.75;
+    }
 
-  .btn{
-    --r: 24px;
-    display:flex; align-items:center; gap:18px;
-    width: min(560px, 92%); margin: 0 auto;
-    padding:18px 22px;
-    border-radius: var(--r);
-    background:
-      radial-gradient(200px 80px at -40px -30px, rgba(205,182,122,.18), transparent 55%),
-      linear-gradient(180deg, #141414 0%, #0e0e0e 100%);
-    box-shadow:
-      0 0 0 1px rgba(205,182,122,.10) inset,
-      0 0 0 2px rgba(106,90,54,.08) inset,
-      0 14px 40px rgba(0,0,0,.55);
-    text-decoration:none;
-    color:#efe7d3;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .btn:active{ transform: translateY(1px) scale(.997); }
-  .btn:hover{ box-shadow:
-      0 0 0 1px rgba(205,182,122,.14) inset,
-      0 0 0 2px rgba(106,90,54,.10) inset,
-      0 20px 48px rgba(0,0,0,.65);
-  }
-  .btn .ico{
-    width:56px; height:56px; border-radius:50%;
-    display:grid; place-items:center; flex:0 0 auto;
-    background:
-      radial-gradient(160px 120px at 38% 34%, rgba(205,182,122,.20), rgba(0,0,0,0) 60%),
-      linear-gradient(180deg, #121212, #0f0f0f);
-    box-shadow:
-      0 0 0 1px rgba(205,182,122,.12) inset,
-      0 10px 24px rgba(0,0,0,.55);
-  }
-  .btn .txt{
-    font-size: clamp(18px, 3.4vw, 28px);
-    letter-spacing:.02em; font-weight:700; font-family: Cardo, serif;
-  }
-  .btn .arrow{ margin-left:auto; font-size:26px; opacity:.8 }
-
-  .copy{
-    margin:28px 0 2px;
-    text-align:center;
-    color:#e7dcc4;
-    opacity:.9;
-    font-size:14px;
-    letter-spacing:.02em;
-  }
-  .copy small{font-size:14px}
-
-  /* responsividade da logo */
-  @media (max-width:420px){
-    .logo{ width:150px; height:150px; }
-  }
-</style>
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: #d4af37;
+    }
+  </style>
 </head>
 <body>
-
-  <main class="card" role="main" aria-label="Cartão de contato Legacy Club">
-    <div class="logo-wrap">
-      <div class="logo" aria-label="Logo Legacy Club">
-        <!-- IMPORTANTE: mantenha o arquivo como lc-logo.png ao lado do index.html -->
-        <img src="lc-logo.png" alt="Monograma LC dourado">
-      </div>
+  <div class="card">
+    <div class="logo-container">
+      <img src="lc-logo.png" alt="Legacy Club Logo" class="logo">
     </div>
 
-    <h1 class="brand">LEGACY CLUB</h1>
+    <h1>LEGACY CLUB</h1>
     <p class="sub">✦ Atendimento Oficial</p>
 
-    <a class="btn" href="https://wa.me/5522998890434" target="_blank" rel="noopener">
-      <span class="ico" aria-hidden="true">
-        <!-- ícone WhatsApp em SVG para ficar nítido -->
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M20.52 3.48A11.8 11.8 0 0 0 12.05.02C5.64.02.45 5.2.45 11.6c0 2.04.53 4.03 1.54 5.8L.02 24l6.76-1.91a11.5 11.5 0 0 0 5.27 1.34h.01c6.41 0 11.6-5.18 11.6-11.58 0-3.1-1.21-6.01-3.14-8.37Z" stroke="url(#g1)" stroke-width="1.2" />
-          <path d="M17.26 14.29c-.2.56-1.19 1.06-1.63 1.09-.43.03-.93.41-3.16-.65-2.68-1.32-4.4-4.37-4.54-4.57-.14-.2-1.08-1.42-1.08-2.71 0-1.3.68-1.93.93-2.21.25-.3.54-.37.72-.37.18 0 .36 0 .52.01.17.01.4-.07.63.48.24.57.82 1.96.89 2.11.07.15.12.33.02.53-.09.2-.14.32-.29.49-.14.17-.3.38-.43.52-.14.14-.28.3-.12.59.17.28.76 1.25 1.63 2.03 1.12.99 2.06 1.3 2.35 1.44.29.15.47.13.65-.08.18-.2.76-.88.96-1.19.2-.31.42-.26.7-.15.28.1 1.76.83 2.06.98.3.16.5.23.58.36.08.14.08.8-.12 1.36Z" fill="url(#g1)"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#cdb67a"/>
-              <stop offset=".55" stop-color="#8f7b4a"/>
-              <stop offset="1" stop-color="#6a5a36"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
-      <span class="txt">Fale Conosco</span>
-      <span class="arrow">›</span>
+    <a class="btn" href="https://wa.me/5522998890434" target="_blank">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.02 2 11.5c0 2.03.65 3.91 1.75 5.45L2 22l5.2-1.69A9.9 9.9 0 0 0 12 21c5.52 0 10-4.48 10-9.5S17.52 2 12 2zm0 17c-1.58 0-3.07-.41-4.37-1.15l-.31-.18-3.09.99.99-3.01-.2-.32A7.37 7.37 0 0 1 4.5 11.5C4.5 7.91 8.02 5 12 5s7.5 2.91 7.5 6.5S15.98 19 12 19z"/>
+      </svg>
+      Fale Conosco
     </a>
 
-    <p class="copy"><small>© Legacy Club — Todos os direitos reservados</small></p>
-  </main>
-
+    <footer>© Legacy Club — Todos os direitos reservados</footer>
+  </div>
 </body>
 </html>
